@@ -63,6 +63,8 @@ this.disabled=true;
 connection.openOrJoin(roomid.value);
 };
 
+
+
 connection.onstream = function(event) {
 	
 	var isInitiator = connection.isInitiator;
@@ -75,15 +77,18 @@ connection.onstream = function(event) {
 	if (isInitiator === true ) {
         // initiator's own stream
 		document.getElementById("btnStartRecording").style.visibility = "visible";
-		document.getElementById("btnStopRecording").style.visibility = "visible";
+    document.getElementById("btnStopRecording").style.visibility = "visible";
+    document.getElementById("btnStopRecording").disabled=true;
+    document.getElementById("btnStartRecording").disabled=false;
     }	
 };
 
 document.getElementById("btnStartRecording").onclick=function(){
-	counter++;
+  counter++;
+  this.disabled=true;
+  document.getElementById("btnStopRecording").disabled=false;
 	recorder.startRecording();
-    listOfRecorders[counter] = recorder;
-    alert(listOfRecorders);
+  listOfRecorders[counter] = recorder;
 };
 
 
@@ -122,10 +127,15 @@ document.getElementById("btnStopRecording").onclick = function() {
         hf.innerHTML = `${hf.download}`;
         li.appendChild(mt);
         li.appendChild(hf);
-       localvideos.appendChild(li);
-       connection.send(url);
-       alert("sent to the clients connected on journey");
+        localvideos.appendChild(li);
+        connection.send(url);
     });
+
+    document.getElementById("btnStopRecording").disabled=true;
+    document.getElementById("btnStartRecording").disabled=false;
+    var numberOfUsersInTheRoom = connection.getAllParticipants().length;
+    alert("sent to the clients connected on journey and "+ numberOfUsersInTheRoom+ 
+    " person / people received voice note");
 };
 
 </script>

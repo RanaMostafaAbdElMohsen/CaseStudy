@@ -10,7 +10,7 @@ $(document).ready(function () {
         mt = document.createElement('audio'),
         source= document.createElement('source'),
         hf = document.createElement('a');           
-        mt.id="myAudio";
+        mt.id="myAudio"+counter.toString();
         mt.controls = true;
         source.src = url;
         mt.append(source);
@@ -20,7 +20,7 @@ $(document).ready(function () {
         li.appendChild(mt);
         li.appendChild(hf);
         remotevideos.appendChild(li);
-        document.getElementById("myAudio").addEventListener('play',function() { alert('it is playing'); });
+        document.getElementById("myAudio"+counter.toString()).addEventListener('play',function() { alert('it is playing'); });
     };
   
 });

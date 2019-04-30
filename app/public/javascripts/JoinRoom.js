@@ -4,7 +4,7 @@ $(document).ready(function () {
     roomid.value=connection.token();
 
     // Opening or Joining the room
-    document.getElementById("openorjoin").onclick=function(){
+    document.getElementById("join").onclick=function(){
         this.disabled=true;
         this.innerHTML="Joined Room"; 
         connection.openOrJoin(roomid.value); 

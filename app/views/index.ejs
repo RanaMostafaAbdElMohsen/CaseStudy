@@ -10,32 +10,41 @@
       <script type="text/javascript" src="/javascripts/Open_JoinRoom.js"></script>
       <script type="text/javascript" src="/javascripts/record.js"></script>
       <script type="text/javascript" src="/javascripts/custreceive_vn.js"></script>
+      <script src="/stylesheets/bootstrapmin.js"></script>
+      <link rel="stylesheet" href="/stylesheets/bootstrapmin.css">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <% include Navbar.ejs %> 
     </head>
+
     <body>
+        <br>
+        <br>
+        <br>
+        <h1 style="text-align: center; color:grey">Join Broadcast ! </h1>
+        <br>
+        <br>
 
-        <input id="room" placeholder="UniqueRoomID">
-
-        <button id="openorjoin">
-        OpenOrJoin
-        </button>
-
-        <button id="btnStartRecording" style="visibility:hidden">
-        Start
-        </button>
-
-        <button id="btnStopRecording" style="visibility:hidden">
-        Stop
-        </button>
-
-        <hr>
-        <div id="local">
-
+        <div class="input-group mb-3" style=" margin:0px auto; width : 50%" >
+            <input type="text" class="form-control" id="room" placeholder="UniqueRoomID">
+            <div class="input-group-append">
+              <button class="btn btn-success" id="openorjoin" type="submit">Open Or Join</button>
+            </div>
         </div>
-
+        <br>
+        <br>
+        <div class="text-center">
+          <button  class="fa fa-microphone btn btn-success btn-lg" id="btnStartRecording" style="visibility:hidden"></button>
+          <button  class="fa fa-stop btn btn-danger btn-lg" id="btnStopRecording" style="visibility:hidden"></button>
+       </div>       
         <hr>
+        <div class="text-center">
+            <h3>Videos Recorded Successfully for this broadcast</h3>
+            <div id="local">
 
-        <div id="remote">
+            </div>
+            <div id="remote">
 
-        </div>
+            </div>
+       </div>
     </body>
 </html>

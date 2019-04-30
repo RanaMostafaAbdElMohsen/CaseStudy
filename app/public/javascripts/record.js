@@ -14,8 +14,9 @@ $(document).ready(function () {
                 recorderType: MediaStreamRecorder
             });
             
+            // If I am the driver
             if (isInitiator === true ) {
-                // initiator's own stream
+                
                 document.getElementById("btnStartRecording").style.visibility = "visible";
                 document.getElementById("btnStopRecording").style.visibility = "visible";
                 document.getElementById("btnStopRecording").disabled=true;
@@ -34,14 +35,14 @@ $(document).ready(function () {
 
     document.getElementById("btnStopRecording").onclick = function() {
 
-        var recorder = listOfRecorders[counter];
+        var recordertobestopped = listOfRecorders[counter];
         document.getElementById("btnStopRecording").disabled=true;
         document.getElementById("btnStartRecording").disabled=false;
         var numberOfUsersInTheRoom = connection.getAllParticipants().length;
         alert("sent to the clients connected on journey and "+ numberOfUsersInTheRoom+ 
         " person / people received voice note");
 
-        recorder.stopRecording(function() {
+        recordertobestopped.stopRecording(function() {
             
             var blob = recorder.getBlob();
             var url = URL.createObjectURL(blob),

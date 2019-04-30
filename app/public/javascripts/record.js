@@ -21,7 +21,12 @@ $(document).ready(function () {
                 document.getElementById("btnStopRecording").style.visibility = "visible";
                 document.getElementById("btnStopRecording").disabled=true;
                 document.getElementById("btnStartRecording").disabled=false;
+                document.getElementById("openorjoin").innerHTML="Opened Room";
             }	
+            else
+            {
+                document.getElementById("openorjoin").innerHTML="Joined Room"; 
+            }
     };
 
     document.getElementById("btnStartRecording").onclick=function(){

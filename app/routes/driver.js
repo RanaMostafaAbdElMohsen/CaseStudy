@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/driver', function(req, res, next) {
-  res.render('driver', { title: 'Express' });
+  res.render('Driver', { title: 'Express' });
 });
 
 module.exports = router;

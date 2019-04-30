@@ -1,9 +1,10 @@
+var counter=0;
 $(document).ready(function () {
     
     var remotevideos=document.getElementById("remote");
 
     connection.onmessage = function(event) {
-
+        counter++;
         var url = event.data,
         li = document.createElement('li'),
         mt = document.createElement('audio'),

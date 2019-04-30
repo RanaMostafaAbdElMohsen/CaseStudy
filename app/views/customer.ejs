@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <script src="/stylesheets/jquery.js"></script>
+      <script src="/stylesheets/jquery-min.js"></script>
+      <script src="/javascripts/RTCMultiConnection.min.js"></script>
+      <script src="/javascripts/socket.io.js"></script>
+      <script src="/javascripts/RecordRTC.js"></script>     
+      <script type="text/javascript" src="/javascripts/connectionInitialisation.js"></script>  
+      <script type="text/javascript" src="/javascripts/JoinRoom.js"></script>
+      <script type="text/javascript" src="/javascripts/custreceive_vn.js"></script>
+      <script src="/stylesheets/bootstrapmin.js"></script>
+      <link rel="stylesheet" href="/stylesheets/bootstrapmin.css">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <% include Navbar_customer.ejs %> 
+    </head>
+
+    <body>
+        <br>
+        <br>
+        <br>
+        <h1 style="text-align: center; color:red"><b>Join Broadcast!</b></h1>
+        <br>
+        <br>
+
+        <div class="input-group mb-3" style=" margin:0px auto; width : 50%" >
+            <input type="text" class="form-control" id="room" placeholder="UniqueRoomID">
+            <div class="input-group-append">
+              <button class="btn btn-success" id="openorjoin" type="submit">Open Or Join</button>
+            </div>
+        </div>
+        <br>
+        <br>     
+        <hr>
+        <div class="text-center">
+            <h3>Videos Broadcasted by driver</h3>
+            <div id="remote">
+
+            </div>
+       </div>
+    </body>
+</html>

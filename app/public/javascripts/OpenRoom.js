@@ -6,6 +6,7 @@ $(document).ready(function () {
     // Opening or Joining the room
     document.getElementById("openorjoin").onclick=function(){
         this.disabled=true;
+        this.innerHTML="Opened Room";
         connection.openOrJoin(roomid.value); 
     };
     

@@ -9,6 +9,6 @@
 
 - Customer listen to voice note
 
--Send voice notes to all customers who have booked this journey; however currently waiting in the next bus stops [needs to implemented]
+- Send voice notes to all customers who have booked this journey; however currently waiting in the next bus stops [needs to implemented]
 
--The ability to know how many customers received the voice note; however how many of them have listened to the voice note [needs to be implemented]
+- The ability to know how many customers received the voice note; however how many of them have listened to the voice note [needs to be implemented]

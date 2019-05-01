@@ -1,7 +1,18 @@
 $(document).ready(function () {
 
-    var roomid=document.getElementById("room");
-    roomid.value=connection.token();
+    // Finding room id from database for this particular driver
+    var roomid="";
+    $.ajax(
+            { url: "/journey/findroomid", 
+            method: "GET",
+            data: {username:"mohamed"},
+            async: false,
+            success: function(resp) {
+            roomid=resp[0].roomid;
+            }
+        });
+
+    document.getElementById("room").value=roomid;
 
     // Opening or Joining the room
     document.getElementById("open").onclick=function(){

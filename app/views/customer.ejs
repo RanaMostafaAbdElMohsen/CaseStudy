@@ -6,7 +6,8 @@
       <script src="/javascripts/RTCMultiConnection.min.js"></script>
       <script src="/javascripts/socket.io.js"></script>
       <script src="/javascripts/RecordRTC.js"></script>     
-      <script type="text/javascript" src="/javascripts/connectionInitialisation.js"></script>  
+      <script type="text/javascript" src="/javascripts/connectionInitialisation.js"></script> 
+      <script type="text/javascript" src="/javascripts/subscribejourney.js"></script> 
       <script type="text/javascript" src="/javascripts/JoinRoom.js"></script>
       <script type="text/javascript" src="/javascripts/custreceive_vn.js"></script>
       <script src="/stylesheets/bootstrapmin.js"></script>
@@ -15,27 +16,41 @@
       <% include Navbar_customer.ejs %> 
     </head>
 
-    <body>
+    <body class="text-center">
         <br>
         <br>
         <br>
-        <h1 style="text-align: center; color:red"><b>Join Broadcast!</b></h1>
         <br>
-        <br>
-        <div class="input-group mb-3" style=" margin:0px auto; width : 50%" >
-            <input type="text" class="form-control" id="room" placeholder="UniqueRoomID">
-            <div class="input-group-append">
-              <button class="btn btn-success" id="join" type="submit">Join Room </button>
-            </div>
+        <div class="form-signin">
+          <h1 style="color: red">List of Journeys Available</h1>
+          <br>
+          <span>
+            <select class="custom-select" style="width:200px" id="journeyslist">
+            </select> 
+            <button class="btn btn-outline-primary" id="subscribe">Subscribe Now !</button>
+         </span>
         </div>
         <br>
-        <br>     
-        <hr>
-        <div class="text-center">
-            <h3>Videos Broadcasted by driver</h3>
-            <div id="remote">
-
+        <br>
+        <div id="broadcast" style="visibility: hidden">
+            <h1 style="text-align: center; color:red"><b>Join Broadcast!</b></h1>
+            <br>
+            <br>
+            <div class="input-group mb-3" style=" margin:0px auto; width : 50%" >
+                <input type="text" class="form-control" id="room" placeholder="UniqueRoomID">
+                <div class="input-group-append">
+                  <button class="btn btn-success" id="join" type="submit">Join Room </button>
+                </div>
             </div>
-       </div>
+            <br>
+            <br>     
+            <hr>
+            <div class="text-center">
+                <h3>Videos Broadcasted by driver</h3>
+                <div id="remote">
+
+                </div>
+            </div>
+        </div>
     </body>
 </html>

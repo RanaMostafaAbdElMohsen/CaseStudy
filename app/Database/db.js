@@ -9,7 +9,7 @@ var con = mysql.createConnection({
 });
 
 con.connect(function(err) {
-  if (err) throw err;
+  if (err) cb(err, null);
   console.log("connected");
 });
 // Find room id for particular journey assigned to a driver 
@@ -37,5 +37,37 @@ dbManager.drivsignin=function (user,pass, cb) {
       cb(null, res);
     });
 };
+
+// Find Journeys
+dbManager.findjourneys=function (cb) {
+  con.query("SELECT details FROM journey", function (err, res) {
+    if (err) cb(err, null);
+    cb(null, res);
+  });
+};
+
+// subscribe journey
+dbManager.subscribejourney=function (username,journeydetails,cb) {
+
+  var journey_id=-1;
+  var room_id=-1;
+  // Get Journey ID
+  var query="SELECT jid,roomid FROM journey where details='"+journeydetails+"'";
+
+  con.query(query, function (err, res) {
+    if (err) cb(err, null);
+    
+    journey_id=res[0].jid;
+    room_id=res[0].roomid;
+
+    var sql_query = "INSERT INTO trip (cuser, idjourney,cstatus) VALUES ('"+username+"',"+journey_id+",'0')";
+
+    con.query(sql_query, function (err, res) {
+      if (err) cb(err, null);
+      cb(null, room_id);
+    });
+ });
+};
+
 
 module.exports = dbManager;

@@ -4,7 +4,8 @@ var customercontroller = require('../controller/customer.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('customer', { title: 'Express' });
+  var username=req.query.username;
+  res.render('customer', { user: username });
 });
 
 router.get('/signin',customercontroller.signin);

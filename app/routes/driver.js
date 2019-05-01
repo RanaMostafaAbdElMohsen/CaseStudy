@@ -4,7 +4,8 @@ var drivercontroller = require('../controller/driver.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('Driver', { title: 'Express' });
+  var username=req.query.username;
+  res.render('Driver', { user: username });
 });
 
 router.get('/signin',drivercontroller.signin);

@@ -43,7 +43,7 @@ $(document).ready(function () {
                 return false;
             }
             else{
-                window.location="/customer";
+                window.location="/customer?username="+user;
                 return false;
             }
         }

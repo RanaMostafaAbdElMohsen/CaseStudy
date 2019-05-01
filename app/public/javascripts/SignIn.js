@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         if(exists){
             if (type=="driver"){
-                window.location="/driver";
+                window.location="/driver?username="+user;
                 return false;
             }
             else{

@@ -2,10 +2,11 @@ $(document).ready(function () {
 
     // Finding room id from database for this particular driver
     var roomid="";
+    var username=document.getElementById("username").innerHTML;
     $.ajax(
             { url: "/journey/findroomid", 
             method: "GET",
-            data: {username:"mohamed"},
+            data: {username:username},
             async: false,
             success: function(resp) {
             roomid=resp[0].roomid;

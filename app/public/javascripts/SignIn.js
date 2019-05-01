@@ -10,7 +10,7 @@ $(document).ready(function () {
         var url_link="/customer/signin";
 
 
-        if(type != "driver" || type!="customer")
+        if(type !="driver" && type !="customer")
         {
             document.getElementById("alert").style.visibility = "visible";
             exists=false;

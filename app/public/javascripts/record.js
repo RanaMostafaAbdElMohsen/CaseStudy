@@ -39,8 +39,6 @@ $(document).ready(function () {
         document.getElementById("btnStopRecording").disabled=true;
         document.getElementById("btnStartRecording").disabled=false;
         var numberOfUsersInTheRoom = connection.getAllParticipants().length;
-        alert("sent to the clients connected on journey and "+ numberOfUsersInTheRoom+ 
-        " person / people received voice note");
 
         recordertobestopped.stopRecording(function() {
             
@@ -56,8 +54,7 @@ $(document).ready(function () {
             source.src = url;
             mt.append(source);
             hf.href = url;
-            hf.download = `${counter}${'.ogg'}`;
-            hf.innerHTML = `${hf.download}`;
+            hf.innerHTML = numberOfUsersInTheRoom+" client(s) received voice note";
             li.appendChild(mt);
             li.appendChild(hf);
             localvideos.appendChild(li);

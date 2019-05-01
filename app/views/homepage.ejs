@@ -6,14 +6,19 @@
       <script src="/stylesheets/bootstrapmin.js"></script>
       <link rel="stylesheet" href="/stylesheets/bootstrapmin.css">
       <link rel="stylesheet" href="/stylesheets/style.css">
+      <script src="/javascripts/SignIn.js"></script>
     </head>
 
     <body class="text-center">
         
+
+        <div class="alert alert-danger" id ="alert" style="visibility:hidden">
+                <strong>Invalid </strong>Username or Password.
+        </div>
         <button class="btn btn-lg btn-success">Careem</button>
         <form class="form-signin">
-            <label for="inputEmail" class="sr-only">Username</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="">
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="">
             <br>
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
@@ -25,7 +30,7 @@
             </select>
             <br>
             <br>
-            <button class="btn btn-lg btn-outline-success btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-outline-success btn-block" id="signin" type="submit">Sign in</button>
             <p class="mt-5 mb-3 text-muted">© 2019</p>
         </form>
     </body>

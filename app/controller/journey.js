@@ -12,6 +12,6 @@ journey.findroomid=function(request,resp){
             console.log(res)
             resp.send(res);
     })
-}
+};
 
 module.exports = journey;

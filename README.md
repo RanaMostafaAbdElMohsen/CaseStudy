@@ -38,4 +38,11 @@ DB architecture is MYSQL database with 5 tables
   - playedvoicenote Table
   - voicenote Table
   
-  Future Work & Enhancements : saving voicenotes as a blob inside db ; however since it is a voice uni-directional service - I believe the concentration within scope is more concentrated on broadcasting itself
+Database ER Diagram:
+
+
+  
+  
+Future Work & Enhancements : 
+
+saving voicenotes as a blob inside db ; however since it is a voice uni-directional service - I believe the concentration within scope is more concentrated on broadcasting itself

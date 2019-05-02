@@ -8,7 +8,8 @@ var logger = require('morgan');
 var driverRouter = require('./routes/driver');
 var customerRouter = require('./routes/customer');
 var journeyRouter= require('./routes/journey');
-var homepageRouter=require('./routes/homepage')
+var homepageRouter=require('./routes/homepage');
+var vnRouter= require('./routes/voicenote');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use('/driver', driverRouter);
 app.use('/customer', customerRouter);
 app.use('/journey', journeyRouter);
 app.use('/',homepageRouter);
+app.use('/vn',vnRouter);
 
 
 

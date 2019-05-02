@@ -1,16 +1,31 @@
-var counter=0;
+var counter="";
 $(document).ready(function () {
     
     var remotevideos=document.getElementById("remote");
 
     connection.onmessage = function(event) {
-        counter++;
-        var url = event.data,
-        li = document.createElement('li'),
+        var url = event.data;
+
+        // Get from database voice note ID and insert it to played voicenote table
+        $.ajax(
+            { url: "/vn/addplayedvn", 
+            method: "POST",
+            data: {
+                username:document.getElementById("username").innerHTML,
+                url:url
+            },
+            async:false,
+            success: function(resp) {
+                counter=resp;
+            }
+        });
+      
+
+        var li = document.createElement('li'),
         mt = document.createElement('audio'),
         source= document.createElement('source'),
         hf = document.createElement('a');           
-        mt.id="myAudio"+counter.toString();
+        mt.id="myAudio"+counter;
         mt.controls = true;
         source.src = url;
         mt.append(source);
@@ -20,7 +35,25 @@ $(document).ready(function () {
         li.appendChild(mt);
         li.appendChild(hf);
         remotevideos.appendChild(li);
-        document.getElementById("myAudio"+counter.toString()).addEventListener('play',function() { alert('it is playing'); });
+
+        document.getElementById("myAudio"+counter).addEventListener('play',function() { 
+            
+            $.ajax(
+                { url: "/vn/listenedtovn", 
+                method: "POST",
+                data: {
+                    username:document.getElementById("username").innerHTML,
+                    id:counter
+                },
+                success: function(resp) {
+                }
+            });
+
+
+         });
+
+       
     };
-  
+
+    
 });

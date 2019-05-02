@@ -63,11 +63,59 @@ dbManager.subscribejourney=function (username,journeydetails,cb) {
     var sql_query = "INSERT INTO trip (cuser, idjourney,cstatus) VALUES ('"+username+"',"+journey_id+",'0')";
 
     con.query(sql_query, function (err, res) {
-      if (err) cb(err, null);
-      cb(null, room_id);
+         cb(null, room_id);
     });
  });
 };
 
+// Add Voicenote
+dbManager.addvoicenote=function (driver_username,url,cb) {
+  var voicenote_id=-1;
+  con.query("SELECT jid FROM journey where driver='"+driver_username+"'", function (err, res) {
+    if (err) cb(err, null);
+    var journey_id=res[0].jid;
+    var sql_query = "INSERT INTO voicenote (journeyID,url) VALUES ("+journey_id+",'"+url+"')";
+    con.query(sql_query, function (err, res) {
+      if (err) cb(err, null);
+      var query="SELECT voicenoteid FROM voicenote where url='"+url+"'";
+        con.query(query, function (err, res) {
+          voicenote_id=res[0].voicenoteid.toString();
+          cb(null, voicenote_id);
+      });
+    });
+  });
+};
+
+dbManager.addplayedvn=function (cust_username,url,cb) {
+  var query="SELECT voicenoteid FROM voicenote where url='"+url+"'";
+  var voicenote_id=-1;
+  con.query(query, function (err, res) {
+    if (err) cb(err, null);
+    voicenote_id=res[0].voicenoteid;
+    var sql_query = "INSERT INTO playedvoicenote (voicenoteid,customerid,Played) VALUES ("+voicenote_id+",'"+cust_username+"',0)";
+    console.log(sql_query);
+    con.query(sql_query, function (err, res) {
+      if (err) cb(err, null);
+      cb(null, voicenote_id.toString());
+    });
+  });
+};
+
+dbManager.listened=function (cust_username,id,cb) {
+  var query="UPDATE  playedvoicenote SET Played=1 where voicenoteid="+id+" and customerid='"+cust_username+"'";
+  con.query(query, function (err, res) {
+    if (err) cb(err, null);
+    cb(null, res);
+   });
+};
+
+
+dbManager.retrievelisteners=function (id,cb) {
+  var query="Select COUNT(*) as count from playedvoicenote where voicenoteid="+id;
+  con.query(query, function (err, res) {
+    if (err) cb(err, null);
+    cb(null, res);
+   });
+};
 
 module.exports = dbManager;

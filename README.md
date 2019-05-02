@@ -5,7 +5,7 @@
 
 - Customer subscribes to a journey in order to receive voice-notes from the captain running this journey
 
-- Customer receive multiple voice notes from the same captain as long as the rider; however status is still waiting for the bus =
+- Customer receive multiple voice notes from the same captain as long as the rider; however status is still waiting for the bus 
 
 - Customer listen to voice note
 

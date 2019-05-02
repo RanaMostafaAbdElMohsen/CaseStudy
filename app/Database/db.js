@@ -118,4 +118,24 @@ dbManager.retrievelisteners=function (id,cb) {
    });
 };
 
+dbManager.updatecuststatus=function (username,roomid,cb) {
+  var query="UPDATE  trip SET cstatus=1 where idjourney=(SELECT jid FROM journey where roomid='"+roomid+"') "+
+            " and cuser='"+username+"'";
+  console.log(query);
+  con.query(query, function (err, res) {
+    if (err) cb(err, null);
+    cb(null, res);
+   });
+};
+
+dbManager.retrievecuststatus=function (username,roomid,cb) {
+  var query="Select cstatus from trip where idjourney=(SELECT jid FROM journey where roomid='"+roomid+"') "+
+            " and cuser='"+username+"'";
+  console.log(query);
+  con.query(query, function (err, res) {
+    if (err) cb(err, null);
+    cb(null, res[0].cstatus);
+   });
+};
+
 module.exports = dbManager;

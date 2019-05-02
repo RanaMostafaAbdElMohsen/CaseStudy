@@ -1,3 +1,5 @@
+var customerStatus=0;
+
 $(document).ready(function () {
 
     var JourneyList="";
@@ -32,8 +34,31 @@ $(document).ready(function () {
             success: function(resp) {
                 document.getElementById("room").value=resp;
                 document.getElementById("subscribe").innerHTML="Subscribed!";      
-                document.getElementById("broadcast").style.visibility = "visible";
+               
             }
         }); 
+
+        $.ajax(
+            { url: "/journey/retrievecuststatus", 
+            method: "GET",
+            data: {
+            username:document.getElementById("username").innerHTML,
+            roomid:document.getElementById("room").value
+            },
+            async:false,
+            success: function(resp) {
+                customerStatus=resp;
+            }
+        });
+
+        if(customerStatus==1)
+        {
+            document.getElementById("AlreadyRode").style.visibility = "visible";
+        }
+        else
+        {
+            document.getElementById("broadcast").style.visibility = "visible";
+        }
+
     }
 });

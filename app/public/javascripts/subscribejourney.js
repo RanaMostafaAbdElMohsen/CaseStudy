@@ -28,6 +28,7 @@ $(document).ready(function () {
         $.ajax(
             { url: "/journey/subscribejourney", 
             method: "GET",
+            async:false,
             data:{journeydetail:journeydetail,
                 username:user
             },

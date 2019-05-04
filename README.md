@@ -44,7 +44,7 @@ Database ER Diagram:
 
 Demo :
 
-- Link : https://drive.google.com/open?id=19mMPPAgOqu_JKTCOgX-2cK7TtkWMsDRo
+- Link : https://drive.google.com/file/d/19mMPPAgOqu_JKTCOgX-2cK7TtkWMsDRo/view?usp=sharing
 
 Future Work & Enhancements : 
 - saving voicenotes as a blob inside db ; however since it is a voice uni-directional service - I believe the concentration within scope is more concentrated on broadcasting itself

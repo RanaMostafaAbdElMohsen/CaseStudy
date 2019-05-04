@@ -9,7 +9,9 @@ var con = mysql.createConnection({
 });
 
 con.connect(function(err) {
-  if (err) cb(err, null);
+  if (err) {
+  console.log(err);
+  }
   console.log("connected");
 });
 // Find room id for particular journey assigned to a driver 
@@ -111,7 +113,7 @@ dbManager.listened=function (cust_username,id,cb) {
 
 
 dbManager.retrievelisteners=function (id,cb) {
-  var query="Select COUNT(*) as count from playedvoicenote where voicenoteid="+id;
+  var query="Select COUNT(*) as count from playedvoicenote where Played=1 and voicenoteid="+id;
   con.query(query, function (err, res) {
     if (err) cb(err, null);
     cb(null, res);

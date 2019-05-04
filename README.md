@@ -17,9 +17,9 @@
 
 ### Hand sketch of the system design
 ### API EndPoints Skeleton
-
+https://github.com/RanaMostafaAbdElMohsen/Uni-directional-VoiceNote-Service/wiki/API-EndPoints-Skeleton
 ### API Documentation and Sample calls
-
+https://github.com/RanaMostafaAbdElMohsen/Uni-directional-VoiceNote-Service/wiki/API-Documentation-and-Sample-calls
 ### Implementation of the service on a github public repo with commented code
 Node.js code inside App folder
 ### Detailed Readme file with technical justification of the system design, DB architecture or any areas that needs explanation
@@ -39,8 +39,7 @@ DB architecture is MYSQL database with 5 tables
   - voicenote Table
   
 Database ER Diagram:
-link: https://drive.google.com/open?id=1z9mR9QoaWVSHgeDu5INU2EgyfIlGjitt
+- link: https://drive.google.com/open?id=1z9mR9QoaWVSHgeDu5INU2EgyfIlGjitt
 
 Future Work & Enhancements : 
-
-saving voicenotes as a blob inside db ; however since it is a voice uni-directional service - I believe the concentration within scope is more concentrated on broadcasting itself
+- saving voicenotes as a blob inside db ; however since it is a voice uni-directional service - I believe the concentration within scope is more concentrated on broadcasting itself

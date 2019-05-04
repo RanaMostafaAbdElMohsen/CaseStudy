@@ -16,6 +16,7 @@
 ## Deliverables
 
 ### Hand sketch of the system design
+Link: https://drive.google.com/open?id=1hOvU4mKCigkRPUqM5F1lqt_8kDk2CIc4
 ### API EndPoints Skeleton
 https://github.com/RanaMostafaAbdElMohsen/Uni-directional-VoiceNote-Service/wiki/API-EndPoints-Skeleton
 ### API Documentation and Sample calls
